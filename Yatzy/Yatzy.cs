@@ -4,6 +4,9 @@ namespace Yatzy
 {
     public class Yatzy
     {
+        // 	Protected Dice array, containing the values of the dices,
+        // 	access to this array is limited to within the class definition
+        // 	and any class that inherits from the class
         protected int[] Dice;
 
         public Yatzy(params int[] Dice)
