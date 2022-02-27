@@ -1,4 +1,7 @@
-# Yatzy Rules
+# Yatzy
+Yatzy game in C# with Unit Testing, xUnit.net
+
+## Yatzy Rules
 
 - Ones: the sum of dices with number 1
 - Twos: the sum of dices with number 2
@@ -17,6 +20,8 @@
 - Chance: The player scores the sum of all dice, no matter what they read
 
 [Link to the rules](https://sammancoaching.org/kata_descriptions/yatzy.html "Yatzy game at sammancoaching.org")
+
+[Link to the original Yatzy code](https://github.com/emilybache/Yatzy-Refactoring-Kata/tree/main/csharp "Github emilybache/Yatzy-Refactoring-Kata")
 
 
 ## My changes in the code:
