@@ -96,6 +96,7 @@ namespace Yatzy
         // Pair: The player scores the sum of the two highest matching dice
         public static int ScoreSumHighestPair(params int[] Dice)
         {
+            int max = 0;
             // Declare a second array were we'll store the sum of each pair of matching dice.
             int[] diceCounts = new int[Dice.Length];
             // Add the sum of each pair in the diceCounts array.
@@ -104,7 +105,6 @@ namespace Yatzy
                     if(Dice[i] == Dice[j])
                         diceCounts[i] = Dice[i] * 2;
 
-            int max = 0;
             // Return the maximum value found in the diceCounts array.
             for (int i = 0; i < Dice.Length; i++)
                 if (diceCounts[i] > max)
@@ -116,15 +116,15 @@ namespace Yatzy
         // Two pairs: If there are two pairs of dice with the same number, the player scores the sum of these dices
         public static int ScoreSumTwoPair(params int[] Dice)
         {
-            int[] diceCounts = new int[Dice.Length+1];
+            int numberOfPairs = 0;
+            int sum = 0;
+            int diceLength = 6;
+            int[] diceCounts = new int[diceLength];
             // Add "1" to the each index in diceCounts array corresponding to a value in the Dice array,
             // " -1 ", because the values of each dice can go up to 6, whereas we have an array length of 5.
             for (int j = 0; j < Dice.Length; j++)
                 diceCounts[Dice[j] - 1]++;
             
-            int numberOfPairs = 0;
-            int sum = 0;
-            int diceLength = Dice.Length + 1;
             // If the for loop finds 2 or more of the same dice we increment the numberOfPairs variable
             // and add the value of the dice to the sum.
             for (int i = 0; i < diceLength; i += 1)
@@ -142,13 +142,13 @@ namespace Yatzy
         // 4 of a kind: at least 4 dices the same, the player scores the sum of these dices
         public static int ScoreSumFourOfAKind(params int[] Dice)
         {
-            int[] diceCounts = new int[Dice.Length + 1];
+            int[] diceCounts = new int[6];
             for (int j = 0; j < Dice.Length; j++)
                 diceCounts[Dice[j] - 1]++;
 
             // If the for loop finds the value 4 or above in diceCounts it means we have 4 of a kind
             // and we return the value of that dice multiplied by 4.
-            for (var i = 0; i < Dice.Length + 1; i++)
+            for (var i = 0; i < 6; i++)
                 if (diceCounts[i] >= 4)
                     return (i + 1) * 4;
 
@@ -158,13 +158,13 @@ namespace Yatzy
         // 3 of a kind: at least 3 dices the same, the player scores the sum of these dices
         public static int ScoreSumThreeOfAKind(params int[] Dice)
         {
-            int[] diceCounts = new int[Dice.Length + 1];
+            int[] diceCounts = new int[6];
             for (int j = 0; j < Dice.Length; j++)
                 diceCounts[Dice[j] - 1]++;
 
             // If the for loop finds the value 3 or above in diceCounts it means we have 3 of a kind
             // and we return the value of that dice multiplied by 3.
-            for (var i = 0; i < Dice.Length + 1; i++)
+            for (var i = 0; i < 6; i++)
                 if (diceCounts[i] >= 3)
                     return (i + 1) * 3;
             return 0;
@@ -212,12 +212,12 @@ namespace Yatzy
             int diceThreeOfAKind = 0;
 
             // add "1" to each index in diceCounts array corresponding to the values in the Dice array
-            int[] diceCounts = new int[Dice.Length + 1];
+            int[] diceCounts = new int[6];
             for (int j = 0; j < Dice.Length; j++)
                 diceCounts[Dice[j] - 1]++;
 
             // Loop through the number of same dices we have in diceCounts
-            for (int i = 0; i < Dice.Length+1; i++)
+            for (int i = 0; i < 6; i++)
             {
                 // if there are two of the same dice, isTwoOfAKind equals true
                 // and we add the value of this dice inside diceTwoOfAKind
@@ -242,13 +242,8 @@ namespace Yatzy
 
             /// If the dice are two of a kind and three of a kind are both false, we return zero.
             return 0;
-
-            
         }
 
-        public static void Main(String[] args)
-        {
-
-        }
+        public static void Main(String[] args) { }
     }
 }
