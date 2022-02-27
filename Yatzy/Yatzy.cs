@@ -2,18 +2,8 @@
 
 namespace Yatzy
 {
-    public class Yatzy
+    public static class Yatzy
     {
-        // 	Protected Dice array, containing the values of the dices,
-        // 	access to this array is limited to within the class definition
-        // 	and any class that inherits from the class
-        protected int[] Dice;
-
-        public Yatzy(params int[] Dice)
-        {
-            Dice.CopyTo(Dice,0);
-        }
-
         // Chance: The player scores the sum of all dice, no matter what they read.
         public static int ChanceScoreSumAllDice(params int[] Dice)
         {
